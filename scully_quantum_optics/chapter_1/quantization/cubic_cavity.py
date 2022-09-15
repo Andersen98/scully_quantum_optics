@@ -10,8 +10,8 @@ def electric_field_coefficient(n_vec:ModeIndex3D,cube_length:float,epsilon_naugh
     .. m::
        :name: Equation 1.1.20
 
-       \mathcal{E}_{\mathbf{k}}
-        = \left ( \frac{\hbar \nu_k}{2\epsilon_0 V}\right)^{1/2}
+       \\mathcal{E}_{\\mathbf{k}}
+        = \\left ( \\frac{\\hbar \\nu_k}{2\\epsilon_0 V}\\right)^{1/2}
     
     Args:
         n_vec: A list of 3 integers which determine the eigenmode of interest.
@@ -23,7 +23,8 @@ def electric_field_coefficient(n_vec:ModeIndex3D,cube_length:float,epsilon_naugh
         float: Electric field coefficient for eigen mode k.
         
     """
-
+    if(c <=0 or cube_length<=0 or hbar<=0 or epsilon_naught<=0):
+        raise NotImplementedError('Function not defined for c,cube_length,epsilon_naugh,hbar <= 0.')
     v_n = eigen_frequency_3D(n_vec,cube_length,c)
     volume = cube_length**3
     return np.sqrt(hbar*v_n/(2*epsilon_naught*volume))

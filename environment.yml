@@ -13,3 +13,4 @@ dependencies:
   - myst-parser
   - sympy
   - mpmath
+  - pytest
